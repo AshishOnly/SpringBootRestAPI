@@ -16,6 +16,14 @@ public class Employee {
 	@Column(name="emp_id")
 	private Long id;
 	
+	@Column(name="emp_name")
+	private String name;
+	
+	@Column(name="designation")
+	private String designation;
+	
+	@Column(name="department")
+	private String department;
 	
 
 }
