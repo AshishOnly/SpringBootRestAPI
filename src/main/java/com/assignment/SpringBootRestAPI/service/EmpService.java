@@ -17,12 +17,12 @@ public class EmpService {
 	
 	List<Employee> empList=new ArrayList<Employee>();
 	
-	public List<Employee> getAllEmployee(){
+	public List<Employee> getAllEmployees(){
 		return empRepo.findAll();
 	}
 	
-	public Employee addEmployee(Employee emp) {
-		return empRepo.save(emp);
+	public void addEmployee(Employee emp) {
+		empRepo.save(emp);
 	}
 		
 	public Employee updateEmployeeById(Long empId, Employee allDetails) {
@@ -34,9 +34,9 @@ public class EmpService {
 		return empRepo.save(emp);
 	}
 	
-	public void deleteEmployeeByID(Long empId) {
-		empRepo.deleteById(empId); 
-	}
+	/*
+	 * public void deleteEmployeeByID(long empId) { empRepo.deleteById(empId); }
+	 */
 	
 	public void deleteAllEmployee() {
 		empList.clear();
