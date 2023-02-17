@@ -9,13 +9,11 @@ import com.assignment.SpringBootRestAPI.model.Employee;
 
 @Repository
 public interface EmpRepository extends JpaRepository<Employee, Long>{
-	
-	List<Employee> getAllEmployee();
-	void addEmployee(Employee emp);
-	Employee updateEmployeeById(Long empId, Employee allDetails);
-	//void deleteEmployeeById(long empId);
-	void deleteAllEmployee();
-	Employee findEmployeeByName(String name);
-	Employee findEmployeeByDesignation(String designation);
-
+	/*
+	 * List<Employee> getAllEmployee(); void addEmployee(Employee emp); Employee
+	 * updateEmployeeById(Long empId, Employee allDetails); //void
+	 * deleteEmployeeById(long empId); void deleteAllEmployee(); Employee
+	 *  Employee findEmployeeByDesignation(String designation);
+	 */
+	Employee findEmployeeByName(String name/* , String designation */);
 }
