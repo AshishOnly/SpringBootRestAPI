@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Employee")
-public class Employee {
+public class Employee implements Comparable<Employee>{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -67,6 +67,12 @@ public class Employee {
 
 	public void setDepartment(String department) {
 		this.department = department;
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		
+		return this.name.compareTo(o.getName());
 	}
 	
 

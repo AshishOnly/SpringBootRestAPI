@@ -2,6 +2,7 @@ package com.assignment.SpringBootRestAPI.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,7 +18,7 @@ import com.assignment.SpringBootRestAPI.model.Employee;
 import com.assignment.SpringBootRestAPI.service.EmpService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1")
 public class EmployeeController {
 	
 	@Autowired
@@ -33,12 +34,12 @@ public class EmployeeController {
 		return empService.getAllEmployees();
 	}
 	
-	@PostMapping("/employees")
+	@PostMapping("/employee")
 	public void addEmployee(@RequestBody Employee emp) {
 		empService.addEmployee(emp);
 	}
 
-	@PutMapping("/employees/{id}")
+	@PutMapping("/employee/{id}")
 	public Employee updateEmp(@PathVariable(value="id") Long id, @RequestBody Employee allDetails) {
 		return empService.updateEmployeeById(id, allDetails);
 	}
@@ -48,16 +49,11 @@ public class EmployeeController {
 		empService.deleteAllEmployee();
 	}
 	
-	@GetMapping("/findByName/{name}")
-	public Employee findEmployeeByName(@PathVariable String name){
-		return empService.findEmployeeByName(name);
-	}
-	
-	
-	/*
-	 * @GetMapping("/findByName/{name}") public List<Employee>
-	 * findEmployeeByName(@PathVariable String name){ return
-	 * empService.findEmployeeByName(name); }
-	 */
+	 @GetMapping("/findByNameAndDesignation/{name}/{designation}") 
+	 public List<Employee> findEmployeeByName(@PathVariable String name, @PathVariable String designation){ 
+		 return empService.findEmpByNameAndDesignation(name, designation); 
+		 
+	 }
+	 
 	
 }
