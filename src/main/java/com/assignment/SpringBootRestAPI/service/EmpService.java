@@ -1,14 +1,10 @@
 package com.assignment.SpringBootRestAPI.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.assignment.SpringBootRestAPI.model.Employee;
@@ -51,10 +47,10 @@ public class EmpService {
 	}
 
 	public List<Employee> findEmpByNameAndDesignation(String name, String designation) {
-		Employee exampleEmp = new Employee();
-		exampleEmp.setName(name);
-		exampleEmp.setDesignation(designation);
-		Example<Employee> example = Example.of(exampleEmp);
+		Employee emp = new Employee();
+		emp.setName(name);
+		emp.setDesignation(designation);
+		Example<Employee> example = Example.of(emp);
 		List<Employee> employees = this.empRepo.findAll(example);
 		return employees.stream().sorted().collect(Collectors.toList());
 	}
