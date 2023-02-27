@@ -17,7 +17,7 @@ import com.assignment.SpringBootRestAPI.repository.EmpRepository;
 @Service
 public class EmpService {
 
-
+	@Autowired
 	private EmpRepository empRepo;
 	
 	public EmpService(EmpRepository empRepo ) {
