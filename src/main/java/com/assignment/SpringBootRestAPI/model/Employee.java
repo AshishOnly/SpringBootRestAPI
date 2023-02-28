@@ -8,27 +8,27 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Employee")
-public class Employee implements Comparable<Employee>{
-	
+@Table(name = "Employee")
+public class Employee implements Comparable<Employee> {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="emp_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "emp_id")
 	private Long id;
-	
-	@Column(name="emp_name")
+
+	@Column(name = "emp_name")
 	private String name;
-	
-	@Column(name="designation")
+
+	@Column(name = "designation")
 	private String designation;
-	
-	@Column(name="department")
+
+	@Column(name = "department")
 	private String department;
 
 	public Employee() {
 		super();
 	}
-	
+
 	public Employee(Long id, String name, String designation, String department) {
 		super();
 		this.id = id;
@@ -71,9 +71,8 @@ public class Employee implements Comparable<Employee>{
 
 	@Override
 	public int compareTo(Employee o) {
-		
+
 		return this.name.compareTo(o.getName());
 	}
-	
 
 }

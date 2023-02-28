@@ -14,23 +14,18 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 @EnableWebMvc
 public class SwaggerConfig implements WebMvcConfigurer {
-		 
+
 	@Bean
 	public Docket api() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.paths(PathSelectors.any())
-				.apis(RequestHandlerSelectors.basePackage("com.assignment.SpringBootRestAPI"))
-				.build();
+		return new Docket(DocumentationType.SWAGGER_2).select().paths(PathSelectors.any())
+				.apis(RequestHandlerSelectors.basePackage("com.assignment.SpringBootRestAPI")).build();
 	}
-	
-	@Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("swagger-ui.html")
-                .addResourceLocations("classpath:/META-INF/resources/");
 
-        registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
-    }
-	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+
+		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+	}
+
 }

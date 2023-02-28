@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.assignment.SpringBootRestAPI.model.Employee;
 
 @Repository
-public interface EmpRepository extends JpaRepository<Employee, Long>{
-	
+public interface EmpRepository extends JpaRepository<Employee, Long> {
+
 	Employee findByNameAndDesignation(String name, String designation);
 }
